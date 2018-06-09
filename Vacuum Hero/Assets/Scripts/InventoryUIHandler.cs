@@ -12,7 +12,7 @@ public class InventoryUIHandler : MonoBehaviour {
 	void Start () {
 		invHandler = GameObject.Find ("Inventory").GetComponent<RectTransform>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (invEnabled) {
@@ -31,6 +31,10 @@ public class InventoryUIHandler : MonoBehaviour {
 		if(invEnabled && Input.GetMouseButtonDown(0) && invHandler.gameObject.activeSelf && !RectTransformUtility.RectangleContainsScreenPoint(invHandler, Input.mousePosition, null)) {
 			closeInv ();
 		}
+	}
+
+	public void hoverSpriteChange(Sprite sHover) {
+		GetComponent<Image> ().sprite = sHover;
 	}
 
 	public void openInv() {
